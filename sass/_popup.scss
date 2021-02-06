@@ -1,0 +1,250 @@
+.popup-gallery {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(black, 0.9);
+  z-index: 2000;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: black;
+      position: absolute;
+      width: 30px;
+      text-align: center;
+      background-color: white;
+
+      clip-path: circle(42%);
+      top: 7.5rem;
+      font-weight: 700;
+      right: 15rem;
+      font-size: 2.5rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+  }
+
+  &__content {
+    @include absCenter;
+    width: 75%;
+    border-radius: 5px;
+    height: 50rem;
+    background-color: white;
+    box-shadow: 0 2rem 4rem rgba(black, 0.2);
+    &-1 {
+      visibility: hidden;
+      &:target {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.popup-team {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(black, 0.9);
+  z-index: 2000;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: black;
+      position: absolute;
+      width: 30px;
+      text-align: center;
+      background-color: white;
+
+      clip-path: circle(42%);
+      top: 7.5rem;
+      font-weight: 700;
+      right: 15rem;
+      font-size: 2.5rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+  }
+
+  &__content {
+    @include absCenter;
+    width: 75%;
+    border-radius: 5px;
+    height: 50rem;
+    background-color: rgb(21, 35, 61);
+    box-shadow: 0 2rem 4rem rgba(black, 0.2);
+    &-1 {
+      visibility: hidden;
+      &:target {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.popup-contect {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(black, 0.9);
+  z-index: 2000;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__content {
+    @include absCenter;
+    width: 75%;
+    height: 50rem;
+    background-color: white;
+    box-shadow: 0 2rem 4rem rgba(black, 0.2);
+  }
+}
+
+.content__detail {
+  margin: 2rem;
+  padding-left: 3rem;
+  width: 50%;
+}
+
+.heading{
+  margin-left: 4rem;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(133, 0, 0);
+  padding: 4px;
+}
+
+.info {
+  &__mobile {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__email {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__facebook {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__instagram {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.detail {
+  &__mobile {
+    width: 50%;
+    position: relative;
+    left: 13rem;
+    top: -2.2rem;
+    font-size: 12px;
+  }
+
+  &__email {
+    width: 50%;
+    position: relative;
+    left: 13rem;
+    top: -2.2rem;
+    font-size: 12px;
+  }
+
+  &__facebook {
+    width: 50%;
+    position: relative;
+    left: 13rem;
+    top: -2.2rem;
+    font-size: 12px;
+  }
+
+  &__instagram {
+    width: 50%;
+    position: relative;
+    left: 13rem;
+    top: -2.2rem;
+    font-size: 12px;
+  }
+}
+
+.popup-enquire {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(black, 0.9);
+  z-index: 2000;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: black;
+      position: absolute;
+      width: 30px;
+      text-align: center;
+      background-color: white;
+
+      clip-path: circle(42%);
+      top: 7.5rem;
+      font-weight: 700;
+      right: 15rem;
+      font-size: 2.5rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+  }
+
+  &__content {
+    @include absCenter;
+    width: 75%;
+    height: 45rem;
+    background-color: white;
+    box-shadow: 0 2rem 4rem rgba(black, 0.2);
+    &-1 {
+      visibility: hidden;
+      &:target {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}

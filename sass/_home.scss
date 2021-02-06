@@ -1,0 +1,27 @@
+.section-book {
+    padding: 8rem 6rem;
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary-light,
+      $color-primary-dark
+    );
+  }
+  
+  .book {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 50%,
+        transparent 50%
+      ),
+      url(../image/design/IMG-20171028-WA0012.jpg);
+    background-size: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 3rem rgba($color-black, 0.25);
+  
+    height: 35rem;
+  
+    &__form {
+      width: 50%;
+      padding: 6rem;
+    }
+  }
