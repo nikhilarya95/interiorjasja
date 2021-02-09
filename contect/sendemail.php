@@ -39,6 +39,8 @@ if(isset($_POST['submit'])){
     catch (Exception $e){
             echo $e->getMessage();
     }
+    
+    header("Location: index.html");
 }
 
 
