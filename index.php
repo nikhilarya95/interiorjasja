@@ -1,4 +1,4 @@
-<?php include 'contect\sendemail.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -600,7 +600,7 @@
                                     </h4>
                                 </div>
         
-                                <form class="form"  method="POST">
+                                <form class="form" action="sendemail.php"  method="POST" enctype="text/plain">
                                     <div class="form__group">
                                         <input type="text" class="form__input" name="name" id="name" placeholder="Full Name" required>
                                         <label for="name" class="form__label">Full name</label>
