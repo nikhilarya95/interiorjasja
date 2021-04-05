@@ -19,7 +19,7 @@ function send(event) {
       Host : "smtp.gmail.com",
       Username : "infoaryagroups.private@gmail.com",
       Password : "ary@!nfo2021",
-      To : "infoaryagroups.private@gmail.com, jasja0011@gmail.com",
+      To : "jasja0011@gmail.com",
       From : "infoaryagroups.private@gmail.com",
       Subject : intrest + " Enquire",
       Body : "Name : "+Cname+"<br>Email : "+email+"<br>Mobile : "+mobile+"<br>Intrested in : "+intrest
