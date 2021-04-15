@@ -18,7 +18,7 @@ function send(event) {
       name:document.getElementById('name').value,    
       Host : "smtp.gmail.com",
       Username : "infoaryagroups.private@gmail.com",
-      Password : "ary@!nfo2021",
+      Password : "info@12344Nikhil",
       To : "jasja0011@gmail.com",
       From : "infoaryagroups.private@gmail.com",
       Subject : intrest + " Enquire",
