@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,7 +19,24 @@
     </head>
     <body class="container">
         <div class="sidebar">
-            <button class="nav-btn"></button>
+            <div class="navigation">
+                <input type="checkbox" class="navigation__checkbox" id="navi-toggle"/>
+                <label for="navi-toggle" class="navigation__button">
+                    <span class="navigation__icon">&nbsp;</span>
+                </label>
+            <div class="navigation__background">&nbsp;</div>
+
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                
+                    <li class="navigation__item"><a href="/" class="navigation__link"> Home</a></li>
+                    <li class="navigation__item"><a href="/Gallery.html" class="navigation__link"> Gallery</a></li>
+                    <li class="navigation__item"><a href="/Services.html" class="navigation__link"> Services</a></li>
+                    <li class="navigation__item"><a href="/ContectUs.html" class="navigation__link">Contect Us</a></li>
+                    <li class="navigation__item"><a href="/About.html" class="navigation__link"> About Jasja</a></li>
+                </ul>
+            </nav>
+        </div>
         </div>
 
         <header class="header">
@@ -164,19 +180,19 @@
                     </svg>
                     <p>5 rooms</p>
                 </div>
-                <div class="home__area">
+                <!-- <div class="home__area">
                     <svg>
                         <use xlink:href="img/sprite.svg#icon-expand"></use>
                     </svg>
                     <p>800 sqft</p>
-                </div>
-                <div class="home__price">
+                </div> -->
+                <!-- <div class="home__price">
                     <svg>
                         <use xlink:href="img/sprite.svg#icon-key"></use>
                     </svg>
                     <p>₹ 1,000,000</p>
-                </div>
-                <button class="btn home__btn" onclick="openModal();currentSlide(1);"><a class="anchor_btn ">view all image</a></button>
+                </div> -->
+                <button class="btn home__btn" ><a href="Gallery.html" class="anchor_btn ">view all image</a></button>
             </div>
 
             
@@ -198,7 +214,7 @@
                     </svg>
                     <p>6 rooms</p>
                 </div>
-                <div class="home__area">
+                <!-- <div class="home__area">
                     <svg>
                         <use xlink:href="img/sprite.svg#icon-expand"></use>
                     </svg>
@@ -209,8 +225,8 @@
                         <use xlink:href="img/sprite.svg#icon-key"></use>
                     </svg>
                     <p>$2,750,000</p>
-                </div>
-                <button class="btn home__btn" onclick=""><a href="#popup-gallery" class="anchor_btn ">view all image</a></button>
+                </div> -->
+                <button class="btn home__btn" onclick=""><a href="Gallery.html" class="anchor_btn ">view all image</a></button>
             </div>
 
             <!-- <div class="home">
@@ -245,7 +261,6 @@
                 </div>
                 <button class="btn home__btn"><a href="#popup-gallery" class="anchor_btn">view all image</a></button>
             </div>
-
             <div class="home">
                 <img src="img/house-4.jpeg" alt="House 4" class="home__img">
                 <svg class="home__like">
@@ -278,7 +293,6 @@
                 </div>
                 <button class="btn home__btn"><a href="#popup-gallery" class="anchor_btn">view all image</a></button>
             </div>
-
             <div class="home">
                 <img src="img/house-5.jpeg" alt="House 5" class="home__img">
                 <svg class="home__like">
@@ -330,7 +344,7 @@
                     </svg>
                     <p>1 Hall</p>
                 </div>
-                <div class="home__area">
+                <!-- <div class="home__area">
                     <svg>
                         <use xlink:href="img/sprite.svg#icon-expand"></use>
                     </svg>
@@ -341,38 +355,21 @@
                         <use xlink:href="img/sprite.svg#icon-key"></use>
                     </svg>
                     <p>$600,000</p>
-                </div>
-                <button class="btn home__btn"><a href="#popup-contect" class="anchor_btn">view all image</a></button>
+                </div> -->
+                <button class="btn home__btn"><a href="Gallery.html" class="anchor_btn">view all image</a></button>
             </div>
         </section>
 
 
-        <section class="gallery">
-            <figure class="gallery__item gallery__item--1"><img src="image/design/2-01-01-01-01-01.jpeg.jpg" alt="Gallery image 1" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--2"><img src="image/design/3-01.jpeg.jpg" alt="Gallery image 2" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--3"><img src="image/design/dental_clinic.jpeg" alt="Gallery image 3" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--4"><img src="image/design/final-01.jpeg.jpg" alt="Gallery image 4" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--5"><img src="image/design/IMG-20170616-WA0009.jpg" alt="Gallery image 5" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--6"><img src="image/wedding design/stage.jpg" alt="Gallery image 6" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--7"><img src="image/design/IMG-20171028-WA0012.jpg" alt="Gallery image 7" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--8"><img src="image/design/IMG-20171028-WA0015.jpg" alt="Gallery image 8" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--9"><img src="image/wedding design/Mandap.jpg" alt="Gallery image 9" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--10"><img src="image/design/jasja-03-01.jpeg.jpg" alt="Gallery image 10" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--11"><img src="image/design/jasja-04-01.jpeg.jpg" alt="Gallery image 11" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--12"><img src="image/design/jasja-05.jpeg.jpg" alt="Gallery image 12" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--13"><img src="image/design/jasja-06.jpeg.jpg" alt="Gallery image 13" class="gallery__img"></figure>
-            <figure class="gallery__item gallery__item--14"><img src="image/design/jasja2-02.jpeg.jpg" alt="Gallery image 14" class="gallery__img"></figure>
-
-
-        </section>
+        
 
         <footer class="footer">
-            <ul class="nav">
-                    <!-- <li class="nav__item"><a href="#" class="nav__link">Find your dream home</a></li> -->
-                    <!-- <li class="nav__item"><a href="#" class="nav__link">Request proposal</a></li> -->
-                    <!-- <li class="nav__item"><a href="#" class="nav__link">Download home planner</a></li> -->
-                    <!-- <li class="nav__item"><a href="#popup-contect" class="nav__link">Contact us</a></li> -->
-                    <!-- <li class="nav__item"><a href="#" class="nav__link">Submit your property</a></li> -->
+            <ul class="nav__footer">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="Gallery.html" class="nav__link">Gallery</a></li>
+                    <li class="nav__item"><a href="Services.html" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="ContectUs.html" class="nav__link">Contact us</a></li>
+                    <li class="nav__item"><a href="About.html" class="nav__link">About us</a></li>
                     <!-- <li class="nav__item"><a href="#" class="nav__link">Come work with us!</a></li> -->
             </ul>
 
