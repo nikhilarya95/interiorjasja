@@ -1,27 +1,58 @@
 .section-book {
-    padding: 8rem 6rem;
-    background-image: linear-gradient(
-      to right bottom,
-      $color-primary-light,
-      $color-primary-dark
-    );
+  padding: 8rem 6rem;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
+
+  @include respond(tab-port) {
+    padding: 5rem 0;
   }
+}
+
+.book {
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../image/design/IMG-20171028-WA0012.jpg);
+  background-size: 100%;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 3rem rgba($color-black, 0.25);
+
   
-  .book {
+
+  @include respond(tab-land) {
     background-image: linear-gradient(
         105deg,
-        rgba($color-white, 0.9) 50%,
-        transparent 50%
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 65%,
+        transparent 75%
       ),
       url(../image/design/IMG-20171028-WA0012.jpg);
-    background-size: 100%;
-    border-radius: 3px;
-    box-shadow: 0 1.5rem 3rem rgba($color-black, 0.25);
-  
-    height: 35rem;
-  
-    &__form {
-      width: 50%;
-      padding: 6rem;
+    background-size: cover;
+  }
+
+  @include respond(tab-port) {
+    background-image: linear-gradient(
+        to right,
+        rgba($color-white, 0.9) 0% rgba($color-white, 0.9) 100%
+      ),
+      url(../image/design/IMG-20171028-WA0012.jpg);
+  }
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+
+    @include respond(tab-land) {
+      width: 65%;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
     }
   }
+}
