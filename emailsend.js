@@ -24,7 +24,7 @@ function send(event) {
       Subject : intrest + " Enquire",
       Body : "Name : "+name+"<br>Email : "+email+"<br>Mobile : "+mobile+"<br>Intrested in : "+intrest
       }).then(function(response){ 
-          
+          consol.log(response);
        if (response == 'OK') {              
            alert("Mail sent succeessfully");
            document.getElementById('popup-enquire').style.visibility ="hidden";
