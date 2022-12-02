@@ -5,7 +5,7 @@ function send(event) {
     var email = "";
     var mobile = "";
 
-    Cname = document.getElementById('name').value;
+    name = document.getElementById('name').value;
     email = document.getElementById('email').value;
     mobile = document.getElementById('mobile').value;
     var ele = document.getElementsByClassName('form__radio-input'); 
