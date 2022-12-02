@@ -9,7 +9,7 @@ function send(event) {
     email = document.getElementById('email').value;
     mobile = document.getElementById('mobile').value;
     var ele = document.getElementsByClassName('form__radio-input'); 
-     if(Cname && email && mobile && ele){  
+     if(name && email && mobile && ele){  
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) 
         var intrest = ele[i].value; 
@@ -22,7 +22,7 @@ function send(event) {
       To : "nikhilarya95@gmail.com",
       From : "infoaryagroups.private@gmail.com",
       Subject : intrest + " Enquire",
-      Body : "Name : "+Cname+"<br>Email : "+email+"<br>Mobile : "+mobile+"<br>Intrested in : "+intrest
+      Body : "Name : "+name+"<br>Email : "+email+"<br>Mobile : "+mobile+"<br>Intrested in : "+intrest
       }).then(function(response){ 
           
        if (response == 'OK') {              
