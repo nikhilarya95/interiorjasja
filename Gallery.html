@@ -1,112 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400" rel="stylesheet">
-    
     <title>Gallery</title>
-    <style>
-        
-
-button:focus,
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none; }
-
-.tabs {
-  display: block;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin: 0;
-  overflow: hidden; }
-  .tabs [class^="tab"] label,
-  .tabs [class*=" tab"] label {
-    color: #6b306b;
-
-    cursor: pointer;
-    display: block;
-    font-size: 3rem;
-    font-weight: 500;
-    line-height: 1em;
-    padding: 2rem 0;
-    text-align: center; }
-  .tabs [class^="tab"] [type="radio"],
-  .tabs [class*=" tab"] [type="radio"] {
-    border-bottom: 1px solid rgba(239, 237, 239, 0.5);
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    display: block;
-    width: 100%;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out; }
-    .tabs [class^="tab"] [type="radio"]:hover, .tabs [class^="tab"] [type="radio"]:focus,
-    .tabs [class*=" tab"] [type="radio"]:hover,
-    .tabs [class*=" tab"] [type="radio"]:focus {
-      border-bottom: 1px solid #fd264f; }
-    .tabs [class^="tab"] [type="radio"]:checked,
-    .tabs [class*=" tab"] [type="radio"]:checked {
-      border-bottom: 2px solid #fd264f; }
-    .tabs [class^="tab"] [type="radio"]:checked + div,
-    .tabs [class*=" tab"] [type="radio"]:checked + div {
-      opacity: 1; }
-    .tabs [class^="tab"] [type="radio"] + div,
-    .tabs [class*=" tab"] [type="radio"] + div {
-      display: block;
-      opacity: 0;
-      padding: 2rem 0;
-      width: 90%;
-      -webkit-transition: all 0.3s ease-in-out;
-      -moz-transition: all 0.3s ease-in-out;
-      -o-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out; }
-  .tabs .tab-2 {
-    width: 50%; }
-    .tabs .tab-2 [type="radio"] + div {
-      width: 200%;
-      margin-left: 200%; }
-    .tabs .tab-2 [type="radio"]:checked + div {
-      margin-left: 0; }
-    .tabs .tab-2:last-child [type="radio"] + div {
-      margin-left: 100%; }
-    .tabs .tab-2:last-child [type="radio"]:checked + div {
-      margin-left: -100%; }
-    </style>
-
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Gallery Styles -->
+    <link rel="stylesheet" href="css/gallery.css">
 </head>
+
 <body>
 
     <div class="sidebar">
         <div class="navigation">
-            <input type="checkbox" class="navigation__checkbox" id="navi-toggle"/>
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
             <label for="navi-toggle" class="navigation__button">
                 <span class="navigation__icon">&nbsp;</span>
             </label>
-        <div class="navigation__background">&nbsp;</div>
+            <div class="navigation__background">&nbsp;</div>
 
-        <nav class="navigation__nav">
-            <ul class="navigation__list">
-            
-                <li class="navigation__item"><a href="/" class="navigation__link"> Home</a></li>
-                <li class="navigation__item"><a href="/Gallery.html" class="navigation__link"> Gallery</a></li>
-                <li class="navigation__item"><a href="/Services.html" class="navigation__link"> Services</a></li>
-                <li class="navigation__item"><a href="/ContectUs.html" class="navigation__link">Contect Us</a></li>
-                <li class="navigation__item"><a href="/About.html" class="navigation__link"> About Jasja</a></li>
-            </ul>
-        </nav>
-    </div>
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="./" class="navigation__link"> Home</a></li>
+                    <li class="navigation__item"><a href="./Gallery.html" class="navigation__link"> Gallery</a></li>
+                    <li class="navigation__item"><a href="./Services.html" class="navigation__link"> Services</a></li>
+                    <li class="navigation__item"><a href="./ContectUs.html" class="navigation__link">Contect Us</a></li>
+                    <li class="navigation__item"><a href="./About.html" class="navigation__link"> About Jasja</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 
 
@@ -114,73 +39,300 @@ select:focus {
         <h2 class="header__h2">Gallery</h2>
     </div>
 
-    <div class="container__gallery">
-        <div class="tabs">
-            <div class="tab-2">
-                <label for="tab2-1">Photo</label>
-                <input id="tab2-1" name="tabs-two" type="radio" checked="checked"/>
-                <div>
-                    <section class="gallery">
-                        <figure class="gallery__item gallery__item--1"><img src="image/design/2-01-01-01-01-01.jpeg.jpg" alt="Gallery image 1" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--2"><img src="image/design/3-01.jpeg.jpg" alt="Gallery image 2" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--3"><img src="image/design/dental_clinic.jpeg" alt="Gallery image 3" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--4"><img src="image/design/final-01.jpeg.jpg" alt="Gallery image 4" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--5"><img src="image/design/IMG-20170616-WA0009.jpg" alt="Gallery image 5" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--6"><img src="image/wedding design/stage.jpg" alt="Gallery image 6" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--7"><img src="image/design/IMG-20171028-WA0012.jpg" alt="Gallery image 7" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--8"><img src="image/design/IMG-20171028-WA0015.jpg" alt="Gallery image 8" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--9"><img src="image/wedding design/Mandap.jpg" alt="Gallery image 9" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--10"><img src="image/design/jasja-03-01.jpeg.jpg" alt="Gallery image 10" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--11"><img src="image/design/jasja-04-01.jpeg.jpg" alt="Gallery image 11" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--12"><img src="image/design/jasja-05.jpeg.jpg" alt="Gallery image 12" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--13"><img src="image/design/jasja-06.jpeg.jpg" alt="Gallery image 13" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--14"><img src="image/design/jasja2-02.jpeg.jpg" alt="Gallery image 14" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item-15"><img src="image/design/exterior1.jpg" alt="Gallery image 15" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--16"><img src="image/design/dental_clinic2.jpeg" alt="Gallery image 16" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--17"><img src="image/design/dental_clinic3.jpeg" alt="Gallery image 17" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--18"><img src="image/design/dental_clinic4.jpeg" alt="Gallery image 18" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--19"><img src="image/design/dental_clinic5.jpeg" alt="Gallery image 19" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--20"><img src="image/design/IMG-20171028-WA0005.jpg" alt="Gallery image 20" class="gallery__img"></figure>
-                        <figure class="gallery__item gallery__item--21"><img src="image/design/IMG-20171223-WA0008.jpg" alt="Gallery image 21" class="gallery__img"></figure>
-                    </section>
-                </div>
+    <main class="gallery-section">
+        <div class="gallery-tabs">
+            <button class="tab-btn active" data-filter="photo">Photos</button>
+            <button class="tab-btn" data-filter="video">Videos</button>
+        </div>
+
+        <!-- Photos Grid -->
+        <div id="photo-gallery" class="gallery-grid">
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/2-01-01-01-01-01.jpeg.jpg" alt="Modern Interior 1">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
             </div>
-            <div class="tab-2">
-                <label for="tab2-2">Video</label>
-                <input id="tab2-2" name="tabs-two" type="radio">
-                <div>
-                    <video width="400" controls>
-                        <source src="./video/final.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
-                </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/3-01.jpeg.jpg" alt="Modern Interior 2">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/dental_clinic.jpeg" alt="Dental Clinic">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/final-01.jpeg.jpg" alt="Final Design">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/IMG-20170616-WA0009.jpg" alt="Classic Style">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/wedding design/stage.jpg" alt="Wedding Stage">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/IMG-20171028-WA0012.jpg" alt="Living Room">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/IMG-20171028-WA0015.jpg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/1.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/2.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/3.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/4.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/5.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/6.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/7.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/8.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/9.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/10.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/11.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/12.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/13.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/14.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/15.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/16.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/17.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/18.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/19.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/20.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/21.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
+            </div>
+            <div class="gallery-item" data-type="photo">
+                <img src="./image/design/22.jpeg" alt="Bedroom View">
+                <div class="overlay"><span class="overlay-icon">+</span></div>
             </div>
         </div>
+
+        <div id="video-gallery" class="gallery-grid" style="display: none;">
+            <div class="gallery-item" data-type="video" data-src="./video/WhatsApp Video 2026-04-19 at 12.07.24 AM.mp4">
+                <video src="./video/WhatsApp Video 2026-04-19 at 12.07.24 AM.mp4" muted></video>
+                <div class="overlay"><span class="overlay-icon">▶</span></div>
+            </div>
+            <div class="gallery-item" data-type="video" data-src="./video/WhatsApp Video 2026-04-19 at 12.07.25 AM.mp4">
+                <video src="./video/WhatsApp Video 2026-04-19 at 12.07.25 AM.mp4" muted></video>
+                <div class="overlay"><span class="overlay-icon">▶</span></div>
+            </div>
+            <div class="gallery-item" data-type="video" data-src="./video/final.mp4">
+                <video src="./video/final.mp4" muted></video>
+                <div class="overlay"><span class="overlay-icon">▶</span></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-nav lightbox-prev">&lt;</button>
+            <button class="lightbox-nav lightbox-next">&gt;</button>
+            <div id="lightbox-media-container"></div>
+        </div>
     </div>
-    
-        
+
     <footer class="footer">
         <ul class="nav__footer">
-                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-                <li class="nav__item"><a href="Gallery.html" class="nav__link">Gallery</a></li>
-                <li class="nav__item"><a href="Services.html" class="nav__link">Services</a></li>
-                <li class="nav__item"><a href="ContectUs.html" class="nav__link">Contact us</a></li>
-                <li class="nav__item"><a href="About.html" class="nav__link">About us</a></li>
-                <!-- <li class="nav__item"><a href="#" class="nav__link">Come work with us!</a></li> -->
+            <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="Gallery.html" class="nav__link">Gallery</a></li>
+            <li class="nav__item"><a href="Services.html" class="nav__link">Services</a></li>
+            <li class="nav__item"><a href="ContectUs.html" class="nav__link">Contact us</a></li>
+            <li class="nav__item"><a href="About.html" class="nav__link">About us</a></li>
+            <!-- <li class="nav__item"><a href="#" class="nav__link">Come work with us!</a></li> -->
         </ul>
 
         <!-- <p class="copyright">
             &copy; Copyright 2017 by Jonas Schmedtmann. Feel free to use this project for your own purposes. This does NOT apply if you plan to produce your own course or tutorials based on this project.
         </p> -->
-        
+    </footer>
 
-    </footer> 
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const photoGallery = document.getElementById('photo-gallery');
+            const videoGallery = document.getElementById('video-gallery');
+            const lightbox = document.getElementById('lightbox');
+            const mediaContainer = document.getElementById('lightbox-media-container');
+            const closeBtn = document.querySelector('.lightbox-close');
+            const prevBtn = document.querySelector('.lightbox-prev');
+            const nextBtn = document.querySelector('.lightbox-next');
 
-    
+            let currentItems = [];
+            let currentIndex = 0;
 
-    
+            // Tab Switching Logic
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
 
-       
+                    const filter = btn.getAttribute('data-filter');
+                    if (filter === 'photo') {
+                        photoGallery.style.display = 'grid';
+                        videoGallery.style.display = 'none';
+                    } else {
+                        photoGallery.style.display = 'none';
+                        videoGallery.style.display = 'grid';
+                    }
+                });
+            });
+
+            // Lightbox Logic
+            const updateLightboxMedia = () => {
+                const item = currentItems[currentIndex];
+                const type = item.getAttribute('data-type');
+                let src;
+
+                mediaContainer.innerHTML = '';
+                if (type === 'photo') {
+                    const img = item.querySelector('img');
+                    src = img.src;
+                    const newImg = document.createElement('img');
+                    newImg.src = src;
+                    mediaContainer.appendChild(newImg);
+                } else if (type === 'video') {
+                    src = item.getAttribute('data-src');
+                    const video = document.createElement('video');
+                    video.src = src;
+                    video.controls = true;
+                    video.autoplay = true;
+                    video.playsInline = true;
+                    mediaContainer.appendChild(video);
+                    video.play().catch(e => console.error("Error playing video:", e));
+                }
+            };
+
+            const openLightbox = (items, index) => {
+                currentItems = items;
+                currentIndex = index;
+                updateLightboxMedia();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                mediaContainer.innerHTML = '';
+                document.body.style.overflow = 'auto';
+            };
+
+            const nextMedia = () => {
+                currentIndex = (currentIndex + 1) % currentItems.length;
+                updateLightboxMedia();
+            };
+
+            const prevMedia = () => {
+                currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
+                updateLightboxMedia();
+            };
+
+            // Event Listeners for Gallery Items
+            const setupGalleryListeners = () => {
+                const allGalleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+
+                allGalleryItems.forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        const filter = document.querySelector('.tab-btn.active').getAttribute('data-filter');
+                        const activeItems = Array.from(document.querySelectorAll(`.gallery-item[data-type="${filter}"]`));
+                        const activeIndex = activeItems.indexOf(item);
+                        openLightbox(activeItems, activeIndex);
+                    });
+                });
+            };
+
+            setupGalleryListeners();
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextMedia();
+            });
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevMedia();
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            // Close on background click
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Close on Escape key and Arrow keys
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeLightbox();
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'ArrowRight') nextMedia();
+                    if (e.key === 'ArrowLeft') prevMedia();
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

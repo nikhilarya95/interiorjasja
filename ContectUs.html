@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Contect Us</title>
+    <link rel="stylesheet" href="css/contact.css">
+    <title>Contact Us | Interior Jasja</title>
 </head>
 <body>
     <div class="sidebar">
@@ -18,67 +17,105 @@
             <label for="navi-toggle" class="navigation__button">
                 <span class="navigation__icon">&nbsp;</span>
             </label>
-        <div class="navigation__background">&nbsp;</div>
+            <div class="navigation__background">&nbsp;</div>
 
-        <nav class="navigation__nav">
-            <ul class="navigation__list">
-            
-                <li class="navigation__item"><a href="/" class="navigation__link"> Home</a></li>
-                <li class="navigation__item"><a href="/Gallery.html" class="navigation__link"> Gallery</a></li>
-                <li class="navigation__item"><a href="/Services.html" class="navigation__link"> Services</a></li>
-                <li class="navigation__item"><a href="/ContectUs.html" class="navigation__link">Contect Us</a></li>
-                <li class="navigation__item"><a href="/About.html" class="navigation__link"> About Jasja</a></li>
-            </ul>
-        </nav>
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="./" class="navigation__link"> Home</a></li>
+                    <li class="navigation__item"><a href="./Gallery.html" class="navigation__link"> Gallery</a></li>
+                    <li class="navigation__item"><a href="./Services.html" class="navigation__link"> Services</a></li>
+                    <li class="navigation__item"><a href="./ContectUs.html" class="navigation__link">Contact Us</a></li>
+                    <li class="navigation__item"><a href="./About.html" class="navigation__link"> About Jasja</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
-    </div>
-
 
     <div class="header__contect">
-        <h2 class="header__h2">Contect Us</h2>
+        <h2 class="header__h2">Contact Us</h2>
     </div>
-    <div class="contect">
-        <div class="rows">
-           <div class="left">
-            <h3 class="head">For Interior</h3>
-            <p  class="info__mobile" style="font-size:16px; ">Mobile :- +91 8210461698</p>
-                        <p style="font-size:16px; " class="info__email">Email :- jasja0011@gmail.com</p>
-                        <a href="https://www.facebook.com/Interior-jasja-101154138687791"> <i class="fa fa-facebook-square" style="font-size: 32px; color: #3b5998; margin: 20px;" aria-hidden="true"></i></a>
-                           <a href="#"> <i class="fa fa-instagram"  style="font-size: 32px;color: white; border-radius: 6px;padding:0px 2px; background-image: linear-gradient(to bottom, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45); margin: 20px;" aria-hidden="true"></i></a>
 
-           </div>
-
-           <div class="right">
-            <h3 class="head">For Event</h3>
-            <p  class="info__mobile" style="font-size:16px; ">Mobile :- +91 7319874996</p>
-                        <p style="font-size:16px; " class="info__email">Email :- jasja0011@gmail.com</p>
-                        <a href="#"> <i class="fa fa-facebook-square" style="font-size: 32px; color: #3b5998; margin: 20px;" aria-hidden="true"></i></a>
-                           <a href="#"> <i class="fa fa-instagram"  style="font-size: 32px;color: white; border-radius: 6px;padding:0px 2px; background-image: linear-gradient(to bottom, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45); margin: 20px;" aria-hidden="true"></i></a>
-
-           </div>
-        </div>
-
-        <div class="rows">
-            <div class="content__map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.6900822557527!2d85.32522738810155!3d23.363240081470106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e11477fe61c5%3A0x3d46bdee2a45c8c9!2sJasja%20associate!5e0!3m2!1sen!2sin!4v1609509633164!5m2!1sen!2sin"  frameborder="0" style="border:1px solid grey; " allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe>
+    <main class="contact-section">
+        <!-- Floating Quick Contact Bar -->
+        <div class="quick-contact-bar">
+            <div class="quick-contact-item">
+                <i class="fa fa-phone"></i>
+                <div>
+                    <strong>Interior:</strong> +91 8210461698<br>
+                    <strong>Events:</strong> +91 7319874996
+                </div>
+            </div>
+            <div class="quick-contact-item">
+                <i class="fa fa-envelope"></i>
+                <div>
+                    <strong>Email Us:</strong><br>
+                    jasja0011@gmail.com
+                </div>
+            </div>
+            <div class="quick-socials">
+                <a href="https://www.facebook.com/Interior-jasja-101154138687791" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-whatsapp"></i></a>
             </div>
         </div>
-    </div>
+
+        <!-- Asymmetrical Contact Container -->
+        <div class="contact-container">
+            <!-- Left: Immersive Map -->
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.6900822557527!2d85.32522738810155!3d23.363240081470106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e11477fe61c5%3A0x3d46bdee2a45c8c9!2sJasja%20associate!5e0!3m2!1sen!2sin!4v1609509633164!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                <div class="map-overlay-badge">
+                    <i class="fa fa-map-marker"></i> Visit Our Studio
+                </div>
+            </div>
+
+            <!-- Right: Elegant Form -->
+            <div class="form-wrapper">
+                <h3>Send an Inquiry</h3>
+                <p>We'd love to hear about your next project. Fill out the form below and we'll get back to you within 24 hours.</p>
+                
+                <form id="inquiry-form" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="tel" id="mobile" class="form-control" placeholder="+91 00000 00000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Required</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="interest" value="Interior" checked> Interior Design
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="interest" value="Event"> Event Planning
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn" onclick="sendEmail(event)">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
     <footer class="footer">
         <ul class="nav__footer">
-                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-                <li class="nav__item"><a href="Gallery.html" class="nav__link">Gallery</a></li>
-                <li class="nav__item"><a href="Services.html" class="nav__link">Services</a></li>
-                <li class="nav__item"><a href="ContectUs.html" class="nav__link">Contact us</a></li>
-                <li class="nav__item"><a href="About.html" class="nav__link">About us</a></li>
-                <!-- <li class="nav__item"><a href="#" class="nav__link">Come work with us!</a></li> -->
+            <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="Gallery.html" class="nav__link">Gallery</a></li>
+            <li class="nav__item"><a href="Services.html" class="nav__link">Services</a></li>
+            <li class="nav__item"><a href="ContectUs.html" class="nav__link">Contact us</a></li>
+            <li class="nav__item"><a href="About.html" class="nav__link">About us</a></li>
         </ul>
-
-        <!-- <p class="copyright">
-            &copy; Copyright 2017 by Jonas Schmedtmann. Feel free to use this project for your own purposes. This does NOT apply if you plan to produce your own course or tutorials based on this project.
-        </p> -->
-        
-
+        <!-- <p class="copyright">&copy; Copyright Interior Jasja Associate</p> -->
     </footer>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="./emailsend.js"></script>
 </body>
 </html>
