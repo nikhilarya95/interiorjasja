@@ -1738,3 +1738,175 @@ img.hover-shadow {
   margin-left: auto;
   text-align: center;
   width: 70%; }
+
+/* Custom Toast Notification */
+.toast-container {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.toast {
+    background: #fff;
+    border-left: 5px solid #c69963;
+    color: #101d2c;
+    padding: 2rem 3rem;
+    border-radius: 4px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transform: translateX(150%);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    pointer-events: auto;
+    font-family: "Josefin Sans", sans-serif;
+    min-width: 30rem;
+}
+
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast-icon {
+    background: #c69963;
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.toast-message {
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #c69963;
+    width: 100%;
+    animation: progress 6s linear forwards;
+}
+
+@keyframes progress {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+/* Desktop Navigation Header */
+.desktop-nav {
+    position: fixed;
+    top: 0;
+    left: 8rem; /* Matches sidebar width */
+    right: 0;
+    height: 8rem;
+    background-color: rgba(16, 29, 44, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    z-index: 5000;
+    border-bottom: 1px solid rgba(198, 153, 99, 0.2);
+    transition: all 0.4s;
+}
+
+@media only screen and (max-width: 62.5em) {
+    .desktop-nav {
+        display: none; /* Hide on mobile/tablet where hamburger is used */
+    }
+}
+
+.desktop-nav__logo img {
+    height: 5rem;
+    transition: all 0.3s;
+}
+
+.desktop-nav__list {
+    display: flex;
+    list-style: none;
+    gap: 4rem;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-nav__item {
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-nav__link:link,
+.desktop-nav__link:visited {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Josefin Sans", sans-serif;
+    letter-spacing: 1px;
+    padding: 1rem 0;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.desktop-nav__link:hover {
+    color: #c69963;
+}
+
+.desktop-nav__link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #c69963;
+    transition: all 0.3s;
+}
+
+.desktop-nav__link:hover::after {
+    width: 100%;
+}
+
+.btn-nav:link,
+.btn-nav:visited {
+    background-color: #c69963;
+    color: #fff;
+    text-decoration: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-family: "Josefin Sans", sans-serif;
+    border-radius: 2px;
+    transition: all 0.3s;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-nav:hover {
+    background-color: #b28451;
+    transform: translateY(-2px);
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.3);
+}
+
+/* Adjust header hero section for fixed nav */
+@media only screen and (min-width: 62.5em) {
+    .header {
+        padding-top: 14rem !important; /* Account for fixed nav height */
+    }
+    
+    .realtors {
+        padding-top: 11rem !important;
+    }
+}

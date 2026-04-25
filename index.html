@@ -42,11 +42,27 @@
         </div>
     </div>
 
+    <nav class="desktop-nav">
+        <div class="desktop-nav__logo">
+            <img src="image/logo/jasjalogo.png" alt="Jasja Logo">
+        </div>
+        <ul class="desktop-nav__list">
+            <li class="desktop-nav__item"><a href="./" class="desktop-nav__link">Home</a></li>
+            <li class="desktop-nav__item"><a href="Gallery.html" class="desktop-nav__link">Gallery</a></li>
+            <li class="desktop-nav__item"><a href="Services.html" class="desktop-nav__link">Services</a></li>
+            <li class="desktop-nav__item"><a href="About.html" class="desktop-nav__link">About</a></li>
+            <li class="desktop-nav__item"><a href="ContectUs.html" class="desktop-nav__link">Contact</a></li>
+        </ul>
+        <div class="desktop-nav__cta">
+            <a href="#popup-enquire" class="btn-nav">Inquire Now</a>
+        </div>
+    </nav>
+
     <header class="header">
         <img src="image/logo/jasjalogo.png" alt="jasja logo" class="header__logo">
         <h3 class="heading-3">Your own home:</h3>
         <h1 class="heading-1">Realising Your Dream Home</h1>
-        <button class="btn header__btn"><a href="#popup-enquire" class="anchor_btn">Inquire Form</a></button>
+        <!-- <button class="btn header__btn"><a href="#popup-enquire" class="anchor_btn">Inquire Form</a></button> -->
         <!-- <div class="header__seenon-text">Seen on</div>
             <div class="header__seenon-logos">
                 <img src="img/logo-bbc.png" alt="Seen on logo 1">
@@ -655,11 +671,13 @@
                         </div>
                     </div>
 
-                    <script src="https://smtpjs.com/v3/smtp.js"></script>
-                    <script src="emailsend.js"></script>
                 </section>
             </div>
         </div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script src="js/config.js"></script>
+        <script src="emailsend.js"></script>
 
 
 </body>
