@@ -1,0 +1,10 @@
+# Security: Ignore configuration files with sensitive keys
+js/config.js
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
