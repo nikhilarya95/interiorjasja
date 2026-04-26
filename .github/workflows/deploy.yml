@@ -12,22 +12,40 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+      
       - name: Create .nojekyll 📄
         run: touch .nojekyll
+      
       - name: Create config.js 🛠️
         run: |
           mkdir -p js
-          cat <<EOF > js/config.js
+          cat > js/config.js << 'EOF'
           const CONFIG = {
               EMAILJS_PUBLIC_KEY: "${{ secrets.EMAILJS_PUBLIC_KEY }}",
               EMAILJS_SERVICE_ID: "${{ secrets.EMAILJS_SERVICE_ID }}",
               EMAILJS_TEMPLATE_ID: "${{ secrets.EMAILJS_TEMPLATE_ID }}"
           };
           EOF
-      - name: Allow config.js to be deployed 🔓
+          
+      - name: Verify config.js was created ✓
         run: |
-          # Remove js/config.js from .gitignore so the deploy action can see it
-          sed -i '/js\/config.js/d' .gitignore || true
+          echo "Checking if js/config.js exists:"
+          if [ -f js/config.js ]; then
+            echo "✓ js/config.js successfully created"
+            echo "File contents:"
+            cat js/config.js
+          else
+            echo "✗ ERROR: js/config.js was not created"
+            exit 1
+          fi
+      
+      - name: Remove config.js from gitignore temporarily 🔓
+        run: |
+          # Create a temporary gitignore without the config.js line
+          grep -v "js/config.js" .gitignore > .gitignore.tmp
+          mv .gitignore.tmp .gitignore
+          echo "Updated .gitignore - config.js line removed"
+      
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
