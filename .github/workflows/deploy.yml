@@ -1,5 +1,4 @@
 name: Deploy to GitHub Pages
-
 on:
   push:
     branches:
@@ -7,23 +6,28 @@ on:
 
 permissions:
   contents: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4 # Updated to v4 to fix the Node.js 20 deprecation warning
-
+        uses: actions/checkout@v4
+      - name: Create .nojekyll 📄
+        run: touch .nojekyll
       - name: Create config.js 🛠️
         run: |
           mkdir -p js
-          echo "const CONFIG = {" > js/config.js
-          echo "    EMAILJS_PUBLIC_KEY: '${{ secrets.EMAILJS_PUBLIC_KEY }}'," >> js/config.js
-          echo "    EMAILJS_SERVICE_ID: '${{ secrets.EMAILJS_SERVICE_ID }}'," >> js/config.js
-          echo "    EMAILJS_TEMPLATE_ID: '${{ secrets.EMAILJS_TEMPLATE_ID }}'" >> js/config.js
-          echo "};" >> js/config.js
-
+          cat <<EOF > js/config.js
+          const CONFIG = {
+              EMAILJS_PUBLIC_KEY: "${{ secrets.EMAILJS_PUBLIC_KEY }}",
+              EMAILJS_SERVICE_ID: "${{ secrets.EMAILJS_SERVICE_ID }}",
+              EMAILJS_TEMPLATE_ID: "${{ secrets.EMAILJS_TEMPLATE_ID }}"
+          };
+          EOF
+      - name: Allow config.js to be deployed 🔓
+        run: |
+          # Remove js/config.js from .gitignore so the deploy action can see it
+          sed -i '/js\/config.js/d' .gitignore || true
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
