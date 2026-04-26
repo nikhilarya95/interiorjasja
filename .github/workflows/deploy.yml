@@ -23,6 +23,10 @@ jobs:
               EMAILJS_TEMPLATE_ID: "${{ secrets.EMAILJS_TEMPLATE_ID }}"
           };
           EOF
+      - name: Allow config.js to be deployed 🔓
+        run: |
+          # Remove js/config.js from .gitignore so the deploy action can see it
+          sed -i '/js\/config.js/d' .gitignore || true
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
