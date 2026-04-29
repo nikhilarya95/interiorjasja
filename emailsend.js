@@ -11,11 +11,11 @@ function showToast(message, type = 'success') {
     toast.className = 'toast';
     if (type === 'error') toast.style.borderLeftColor = '#e74c3c';
     if (type === 'info') toast.style.borderLeftColor = '#3498db';
-    
+
     let icon = '✓';
     if (type === 'error') icon = '!';
     if (type === 'info') icon = '✉';
-    
+
     toast.innerHTML = `
         <div class="toast-icon" style="${type === 'error' ? 'background:#e74c3c' : (type === 'info' ? 'background:#3498db' : '')}">${icon}</div>
         <div class="toast-message">${message}</div>
@@ -39,9 +39,42 @@ function showToast(message, type = 'success') {
     return toast;
 }
 
-// Initialize EmailJS with your Public Key from config.js
-if (typeof CONFIG !== 'undefined') {
-    emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
+// Browser-side process.env shim
+window.process = window.process || { env: {} };
+
+// EmailJS Configuration (Populated via .env locally or GitHub Secrets during deploy)
+let EMAILJS_CONFIG = {
+    ServiceId: process.env.EMAILJS_SERVICE_ID || "service_g8r5xdn",
+    TemplateId: process.env.EMAILJS_TEMPLATE_ID || "template_rds2zsn",
+    PublicKey: process.env.EMAILJS_PUBLIC_KEY || "gPGiuveeX1mCYFyQr"
+};
+
+// Local development: Load .env file into the browser's process.env object
+if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    // Added a cache buster so that recent changes to .env are instantly picked up
+    fetch('.env?t=' + new Date().getTime())
+        .then(res => res.text())
+        .then(text => {
+            console.log("Reading .env file...");
+            text.split('\n').forEach(line => {
+                const parts = line.split('=');
+                if (parts.length < 2) return;
+                const key = parts[0].trim();
+                // Remove quotes and whitespace
+                let value = parts.slice(1).join('=').trim();
+                value = value.replace(/^['"]|['"]$/g, '').trim();
+                process.env[key] = value;
+            });
+
+            // Re-initialize EMAILJS_CONFIG with the new values
+            EMAILJS_CONFIG.ServiceId = process.env.EMAILJS_SERVICE_ID || "service_g8r5xdn";
+            EMAILJS_CONFIG.TemplateId = process.env.EMAILJS_TEMPLATE_ID || "template_rds2zsn";
+            EMAILJS_CONFIG.PublicKey = process.env.EMAILJS_PUBLIC_KEY || "gPGiuveeX1mCYFyQr";
+
+            console.log("Local config ready. Service ID loaded:", EMAILJS_CONFIG.ServiceId !== "service_g8r5xdn");
+        }).catch(err => console.error("No local .env found or failed to load.", err));
+} else if (window.location.protocol === "file:") {
+    console.error("Warning: Cannot load .env over file:// protocol. Please use a local web server (e.g. VS Code Live Server).");
 }
 
 function resetForm() {
@@ -111,12 +144,7 @@ function send(event) {
     console.log("Send function triggered. Name: " + name + ", Email: " + email + ", Mobile: " + mobile);
 
     if (name && email && mobile) {
-        if (typeof emailjs === "undefined") {
-            console.error("EmailJS SDK is not loaded.");
-            showToast("Email service could not be loaded. Please check your connection.", "error");
-            return;
-        }
-        console.log("EmailJS service is loaded. Sending email...");
+        console.log("Sending email...");
 
         // Capture body before resetting
         var emailBody = "Name : " + name + "<br>Email : " + email + "<br>Mobile : " + mobile + "<br>Intrested in : " + (intrest || "Not specified");
@@ -124,6 +152,12 @@ function send(event) {
 
         // RESET IMMEDIATELY
         resetForm();
+
+        // Check if config is loaded
+        if (EMAILJS_CONFIG.ServiceId === "YOUR_SERVICE_ID" || !EMAILJS_CONFIG.ServiceId) {
+            showToast("EmailJS is not configured. Please add keys to .env", "error");
+            return;
+        }
 
         // Immediate feedback
         showToast("Sending your inquiry... please wait.", "info");
@@ -133,21 +167,29 @@ function send(event) {
             email: email,
             mobile: mobile,
             service: intrest || "General Inquiry",
-            title: (intrest || "General") + " Enquire" // Matches {{title}} in your subject
+            title: emailSubject,
+            message: emailBody
         };
 
-        if (typeof CONFIG !== 'undefined') {
-            emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, templateParams)
+        // EmailJS Send
+        if (typeof emailjs !== 'undefined') {
+            console.log("Attempting EmailJS send");
+
+            // Initialize with public key if not done already
+            emailjs.init(EMAILJS_CONFIG.PublicKey);
+
+            emailjs.send(EMAILJS_CONFIG.ServiceId, EMAILJS_CONFIG.TemplateId, templateParams)
                 .then(function (response) {
-                    console.log("EmailJS Success!", response.status, response.text);
+                    console.log('SUCCESS!', response.status, response.text);
                     showToast("Success! Mail sent successfully. We will contact you soon.");
+                    resetForm();
                 }, function (error) {
-                    console.error("EmailJS Failed...", error);
-                    showToast("Error: Failed to send mail. Please try again.", "error");
+                    console.error('FAILED...', error);
+                    showToast("EmailJS Error: " + (error.text || "Failed to send"), "error");
                 });
         } else {
-            console.error("Config not found!");
-            showToast("Configuration error. Please contact support.", "error");
+            console.error("EmailJS Library is NOT loaded.");
+            showToast("Email service failed to load. Please check your connection.", "error");
         }
     } else {
         showToast("Please fill all required fields.", "error");

@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master 
+      - dev
 permissions:
   contents: write
 jobs:
@@ -15,20 +15,10 @@ jobs:
         uses: actions/checkout@v6
       - name: Create .nojekyll 📄
         run: touch .nojekyll
-      - name: Create config.js 🛠️
+      - name: Inject Secrets into emailsend.js 💉
         run: |
-          mkdir -p js
-          cat <<EOF > js/config.js
-          const CONFIG = {
-              EMAILJS_PUBLIC_KEY: "${{ secrets.EMAILJS_PUBLIC_KEY }}",
-              EMAILJS_SERVICE_ID: "${{ secrets.EMAILJS_SERVICE_ID }}",
-              EMAILJS_TEMPLATE_ID: "${{ secrets.EMAILJS_TEMPLATE_ID }}"
-          };
-          EOF
-      - name: Allow config.js to be deployed 🔓
-        run: |
-          # Remove js/config.js from .gitignore so the deploy action can see it
-          sed -i '/js\/config.js/d' .gitignore || true
+          sed -i 's/process.env.EMAIL_HOST_USER/"${{ secrets.EMAIL_HOST_USER }}"/g' emailsend.js
+          sed -i 's/process.env.EMAIL_HOST_PASSWORD/"${{ secrets.EMAIL_HOST_PASSWORD }}"/g' emailsend.js
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
