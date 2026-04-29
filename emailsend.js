@@ -41,7 +41,7 @@ function showToast(message, type = 'success') {
 
 // Initialize EmailJS with your Public Key from config.js
 if (typeof CONFIG !== 'undefined') {
-    emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY);
+    emailjs.init('gPGiuveeX1mCYFyQr');
 }
 
 function resetForm() {
@@ -137,7 +137,7 @@ function send(event) {
         };
 
         if (typeof CONFIG !== 'undefined') {
-            emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, templateParams)
+            emailjs.send('service_g8r5xdn', 'template_rds2zsn', templateParams)
                 .then(function (response) {
                     console.log("EmailJS Success!", response.status, response.text);
                     showToast("Success! Mail sent successfully. We will contact you soon.");
