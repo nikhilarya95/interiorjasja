@@ -42,40 +42,19 @@ function showToast(message, type = 'success') {
 // Browser-side process.env shim
 window.process = window.process || { env: {} };
 
-// EmailJS Configuration (Populated via .env locally or GitHub Secrets during deploy)
-let EMAILJS_CONFIG = {
-    ServiceId: process.env.EMAILJS_SERVICE_ID || "service_g8r5xdn",
-    TemplateId: process.env.EMAILJS_TEMPLATE_ID || "template_rds2zsn",
-    PublicKey: process.env.EMAILJS_PUBLIC_KEY || "gPGiuveeX1mCYFyQr"
-};
-
-// Local development: Load .env file into the browser's process.env object
-if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-    // Added a cache buster so that recent changes to .env are instantly picked up
-    fetch('.env?t=' + new Date().getTime())
-        .then(res => res.text())
-        .then(text => {
-            console.log("Reading .env file...");
-            text.split('\n').forEach(line => {
-                const parts = line.split('=');
-                if (parts.length < 2) return;
-                const key = parts[0].trim();
-                // Remove quotes and whitespace
-                let value = parts.slice(1).join('=').trim();
-                value = value.replace(/^['"]|['"]$/g, '').trim();
-                process.env[key] = value;
-            });
-
-            // Re-initialize EMAILJS_CONFIG with the new values
-            EMAILJS_CONFIG.ServiceId = process.env.EMAILJS_SERVICE_ID || "service_g8r5xdn";
-            EMAILJS_CONFIG.TemplateId = process.env.EMAILJS_TEMPLATE_ID || "template_rds2zsn";
-            EMAILJS_CONFIG.PublicKey = process.env.EMAILJS_PUBLIC_KEY || "gPGiuveeX1mCYFyQr";
-
-            console.log("Local config ready. Service ID loaded:", EMAILJS_CONFIG.ServiceId !== "service_g8r5xdn");
-        }).catch(err => console.error("No local .env found or failed to load.", err));
-} else if (window.location.protocol === "file:") {
-    console.error("Warning: Cannot load .env over file:// protocol. Please use a local web server (e.g. VS Code Live Server).");
-}
+// EmailJS Accounts Array (Hardcoded)
+let EMAILJS_ACCOUNTS = [
+    {
+        ServiceId: "service_6tabn39",
+        TemplateId: "template_gou93cc",
+        PublicKey: "_VT6HcM9qBz2hbhth"
+    },
+    {
+        ServiceId: "service_1ppd7oq",
+        TemplateId: "template_fr0liez",
+        PublicKey: "dk5XclJhTzLCiSBEh"
+    }
+];
 
 function resetForm() {
     // Reset form in index.html (class .form)
@@ -153,9 +132,9 @@ function send(event) {
         // RESET IMMEDIATELY
         resetForm();
 
-        // Check if config is loaded
-        if (EMAILJS_CONFIG.ServiceId === "YOUR_SERVICE_ID" || !EMAILJS_CONFIG.ServiceId) {
-            showToast("EmailJS is not configured. Please add keys to .env", "error");
+        // Check if primary config is loaded
+        if (!EMAILJS_ACCOUNTS || EMAILJS_ACCOUNTS.length === 0 || !EMAILJS_ACCOUNTS[0].ServiceId) {
+            showToast("EmailJS is not configured. Please add keys to the code.", "error");
             return;
         }
 
@@ -175,18 +154,51 @@ function send(event) {
         if (typeof emailjs !== 'undefined') {
             console.log("Attempting EmailJS send");
 
-            // Initialize with public key if not done already
-            emailjs.init(EMAILJS_CONFIG.PublicKey);
+            function trySendEmail(accountIndex) {
+                if (accountIndex >= EMAILJS_ACCOUNTS.length) {
+                    showToast("EmailJS Error: All accounts exceeded limits or failed to send.", "error");
+                    return;
+                }
 
-            emailjs.send(EMAILJS_CONFIG.ServiceId, EMAILJS_CONFIG.TemplateId, templateParams)
-                .then(function (response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    showToast("Success! Mail sent successfully. We will contact you soon.");
-                    resetForm();
-                }, function (error) {
-                    console.error('FAILED...', error);
-                    showToast("EmailJS Error: " + (error.text || "Failed to send"), "error");
-                });
+                let account = EMAILJS_ACCOUNTS[accountIndex];
+
+                // Skip unconfigured fallback accounts
+                if (!account.ServiceId) {
+                    if (accountIndex > 0) {
+                        showToast("EmailJS Error: Primary account limit exceeded and no secondary account configured.", "error");
+                    } else {
+                        showToast("EmailJS Error: Account not configured.", "error");
+                    }
+                    return;
+                }
+
+                console.log("Trying account " + (accountIndex + 1) + "...");
+                // Pass public key directly to send() to avoid global state issues between accounts
+                emailjs.send(account.ServiceId, account.TemplateId, templateParams, account.PublicKey)
+                    .then(function (response) {
+                        console.log('SUCCESS with account ' + (accountIndex + 1) + '!', response.status, response.text);
+                        showToast("Success! Mail sent successfully. We will contact you soon.");
+                        resetForm();
+                    }, function (error) {
+                        console.error('FAILED with account ' + (accountIndex + 1) + '...', error);
+
+                        let errorText = (error.text || "").toLowerCase();
+                        let errorMsg = (error.message || "").toLowerCase();
+
+                        // Check if error is related to quota/limit
+                        if (error.status === 429 || error.status === 400 || errorText.includes('quota') || errorText.includes('limit') || errorMsg.includes('quota')) {
+                            console.log("Account " + (accountIndex + 1) + " limit exceeded. Switching to next account...");
+                            trySendEmail(accountIndex + 1);
+                        } else {
+                            // Other errors (e.g., bad template params, network error)
+                            showToast("EmailJS Error: " + (error.text || error.message || "Failed to send"), "error");
+                        }
+                    });
+            }
+
+            // Start with the first account
+            trySendEmail(0);
+
         } else {
             console.error("EmailJS Library is NOT loaded.");
             showToast("Email service failed to load. Please check your connection.", "error");
