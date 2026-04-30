@@ -1,5 +1,6 @@
 # Security: Ignore configuration files with sensitive keys
 js/config.js
+.env
 
 # Dependencies
 node_modules/
